@@ -3,5 +3,5 @@ class Tourist < ApplicationRecord
     validates :username, uniqueness: true
 
     has_many :book
-    has_many :products, through: :book
+    has_many :sites, through: :book
 end
