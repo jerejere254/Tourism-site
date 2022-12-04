@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_073317) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_112811) do
+  create_table "books", force: :cascade do |t|
+    t.integer "site_id"
+    t.integer "tourists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sites", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -24,22 +37,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_073317) do
 
   create_table "tourguides", force: :cascade do |t|
     t.string "username"
+    t.string "user_type"
     t.integer "phone"
     t.string "email"
-    t.string "avatar"
     t.string "address"
     t.string "bio"
-    t.string "password_digest"
+    t.string "image_url"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tourists", force: :cascade do |t|
     t.string "username"
+    t.string "user_type"
     t.integer "phone"
     t.string "email"
-    t.string "avatar"
-    t.string "password_digest"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
