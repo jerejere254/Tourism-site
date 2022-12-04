@@ -1,0 +1,15 @@
+@media(max-width: 800px){
+    .main-cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .cont-left, .cont-right{
+        width: 90%;
+        margin: 20px auto;
+    }
+    .inner-cont{
+        width: 100%
+    }
+
+
+}

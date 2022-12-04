@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaPowerOff } from "react-icons/fa";
-import { FaShoppingCart, FaCog } from "react-icons/fa";
+import { FaShopify, FaCog } from "react-icons/fa";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 function Navbar({ user, setUser, items, setItems }) {
   const navigate = useNavigate();
 
-  function handleCustomerLogOut() {
-    fetch("/api/customer_logout", {
+  function handleTouristLogOut() {
+    fetch("/api/tourist_logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
@@ -21,8 +22,8 @@ function Navbar({ user, setUser, items, setItems }) {
     });
   }
 
-  function handleVendorLogOut() {
-    fetch("/api/vendor_logout", {
+  function handleTourguideLogOut() {
+    fetch("/api/tourguide_logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
@@ -46,11 +47,11 @@ function Navbar({ user, setUser, items, setItems }) {
           <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
         </svg>
         <span className="font-semibold text-xl tracking-tight text-teal-200 hover:text-white hover:cursor-pointer mr-5">
-          <Link to="/">E-MALL</Link>
+          <Link to="/">MOJE</Link>
         </span>
 
         <Link to="/" className=" text-teal-200 hover:text-white ml-5">
-          All Products
+          All Sites
         </Link>
       </div>
 
@@ -59,32 +60,32 @@ function Navbar({ user, setUser, items, setItems }) {
       ) : null}
 
       <div className="flex items-center text-lg">
-        {user && user.user_type === "customer" ? (
+        {user && user.user_type === "tourist" ? (
           <Link
-            to="/cart"
+            to="/basket"
             className=" text-teal-200 hover:text-white mr-5 text-"
           >
             <Badge badgeContent={items} color="secondary" className="text-2xl">
-              <FaShoppingCart />
+              <FaShopify />
             </Badge>
           </Link>
         ) : null}
 
-        {user && user.user_type === "vendor" ? (
+        {user && user.user_type === "tourguide" ? (
           <Link
-            to="/manage_products"
+            to="/manage_sites"
             className=" text-teal-200 hover:text-white mr-5 text-"
           >
             <FaCog />
           </Link>
         ) : null}
 
-        {user && user.user_type === "customer" ? (
+        {user && user.user_type === "tourist" ? (
           <button
             className="text-teal-200 hover:text-white mr-5"
-            onClick={handleCustomerLogOut}
+            onClick={handleTouristLogOut}
           >
-            customer logout
+            tourist logout
             <FaPowerOff className="inline ml-1 " />
           </button>
         ) : (
@@ -93,25 +94,25 @@ function Navbar({ user, setUser, items, setItems }) {
             className="text-teal-200 hover:text-white mr-5"
           >
             <FaUserCircle className="inline mr-1 mt-0" />
-            Customer Login
+            Tourist Login
           </Link>
         )}
 
-        {user && user.user_type === "vendor" ? (
+        {user && user.user_type === "tourguide" ? (
           <button
             className="text-teal-200 hover:text-white mr-5"
-            onClick={handleVendorLogOut}
+            onClick={handleTourguideLogOut}
           >
-            vendor logout
+            tourguide logout
             <FaPowerOff className="inline ml-1 " />
           </button>
         ) : (
           <Link
-            to="/vendor_login"
+            to="/tourguide_login"
             className="text-teal-200 hover:text-white mr-5"
           >
             <FaUserCircle className="inline mr-1 mt-0" />
-            Vendor Login
+            Tourguide Login
           </Link>
         )}
       </div>

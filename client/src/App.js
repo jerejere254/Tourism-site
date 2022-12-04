@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Basket from './components/Basket'
 import Footer from './components/Footer'
-import LoginForm from './components/LoginForm'
 import ManageSites from './components/ManageSites'
 import { Routes, Route } from "react-router-dom"
 import Navbar from './components/Navbar'
@@ -9,8 +8,10 @@ import Site from './components/Site'
 import SiteEditForm from './components/SiteEditForm'
 import Sites from './components/Sites'
 import TourguideLoginForm from './components/TourguideLoginForm'
-import Touristsighnupform from './components/Touristsighnupform'
+import Tourguidesighnupform from './components/Tourguidesighnupform'
 import TouristLoginForm from './components/TouristLoginForm'
+import "./index.css"
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -41,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <div className="min-h-[93vh] bg-flow-grey-bg text-white">
         <Navbar user={user} setUser={setUser} items={items} setItems={setItems}/>
         <Routes>
@@ -60,7 +61,7 @@ function App() {
           />
           <Route
             path="/customer_signup"
-            element={<Touristsighnupform setUser={setUser} />}
+            element={<Tourguidesighnupform setUser={setUser} />}
           />
 
           <Route
@@ -76,7 +77,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
