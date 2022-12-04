@@ -107,7 +107,7 @@ function ManageSites() {
                 </th>
                 <td className="py-4 px-6">{site.title}</td>
                 <td className="py-4 px-6 ">{site.price}</td>
-                <td className="py-4 px-6 ">{site.stock}</td>
+                <td className="py-4 px-6 ">{site.remaining}</td>
                 <td className="py-4 px-6 ">
                   <button
                     className=" bg-blue-800 text-white text-center hover:bg-blue-500 mt-5 ml-5  py-2 px-4 border border-red-400 hover:border-transparent rounded"
@@ -181,7 +181,7 @@ function ManageSites() {
           </fieldset>
 
           <fieldset className="flex flex-col">
-            <label htmlFor="stock">Stock</label>
+            <label htmlFor="remaining">Stock</label>
             <input
               className="text-black mt-2 h-8 p-1"
               name="remaining"

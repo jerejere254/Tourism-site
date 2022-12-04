@@ -15,13 +15,13 @@ import "./index.css"
 
 function App() {
   const [user, setUser] = useState(null);
-  const [items, setItems] = useState(0);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     fetch("/api/books")
       .then((res) => res.json())
       .then((data) => {
-        setItems(data.length);
+        setNumber(data.length);
       });
   }, []);
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <div>
       <div className="min-h-[93vh] bg-flow-grey-bg text-white">
-        <Navbar user={user} setUser={setUser} items={items} setItems={setItems}/>
+        <Navbar user={user} setUser={setUser} number={number} setNumber={setNumber}/>
         <Routes>
           <Route path="/" element={<Site />} />
           <Route
@@ -53,11 +53,11 @@ function App() {
           />
           <Route
             path="/view_site/:id"
-            element={<Sites items={items} setItems={setItems} />}
+            element={<Sites number={number} setNumber={setNumber} />}
           />
           <Route
             path="/cart"
-            element={<Basket items={items} setItems={setItems} />}
+            element={<Basket number={number} setNumber={setNumber} />}
           />
           <Route
             path="/customer_signup"

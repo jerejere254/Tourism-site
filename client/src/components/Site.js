@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./site.css";
 import { useNavigate } from "react-router-dom";
 
-function Site({ items, setItems }) {
+function Site({ number, setNumber }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
@@ -26,7 +26,7 @@ function Site({ items, setItems }) {
       body: JSON.stringify({ site_id: id }),
     }).then((r) => {
       if (r.ok) {
-        setItems(items + 1);
+        setNumber(number + 1);
         navigate("/basket");
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -72,12 +72,12 @@ function Site({ items, setItems }) {
             <p className="font-bold mt-2 text-xl">
                Remaining:{" "}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.stock}
+                {site.remaining}
               </span>
             </p>
 
             <h1 className="text-center font-black mt-3 text-white text-2xl">
-              Tourguide Details
+              Tourguide's Details
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-xl">
