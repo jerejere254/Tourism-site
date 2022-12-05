@@ -16,7 +16,7 @@ function ManageSites() {
   const [sites, setSites] = useState([]);
 
   useEffect(() => {
-    fetch("/api/touristguide_sites")
+    fetch("http://127.0.0.1:3000/api/touristguide_sites")
       .then((res) => res.json())
       .then((data) => {
         setSites(data);
@@ -24,7 +24,7 @@ function ManageSites() {
   }, []);
 
   function handleDeleteSite(id) {
-    fetch(`/api/touristguide_sites/${id}`, {
+    fetch(`http://127.0.0.1:3000/api/touristguide_sites/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ function ManageSites() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("/api/tourguide_sites", {
+    fetch("http://127.0.0.1:3000/api/tourguide_sites", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

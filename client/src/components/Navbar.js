@@ -11,7 +11,7 @@ function Navbar({ user, setUser, number, setNumber }) {
   const navigate = useNavigate();
 
   function handleTouristLogOut() {
-    fetch("/api/tourist_logout", {
+    fetch("http://127.0.0.1:3000/api/tourist_logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
@@ -23,7 +23,7 @@ function Navbar({ user, setUser, number, setNumber }) {
   }
 
   function handleTourguideLogOut() {
-    fetch("/api/tourguide_logout", {
+    fetch("http://127.0.0.1:3000/api/tourguide_logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

@@ -14,7 +14,7 @@ function TourguideSignupForm({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
-    fetch("/api/tourguide_signup", {
+    fetch("http://127.0.0.1:3000/tourguide_signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

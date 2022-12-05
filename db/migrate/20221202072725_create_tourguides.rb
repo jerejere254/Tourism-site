@@ -8,7 +8,7 @@ class CreateTourguides < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :bio
       t.string :image_url
-      t.string :password
+      t.string :password_digest
       t.timestamps
     end
   end

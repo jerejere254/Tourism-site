@@ -11,7 +11,7 @@ function TouristLoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/api/tourist_login", {
+    fetch("http://127.0.0.1:3000/api/tourists_login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

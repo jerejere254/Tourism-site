@@ -7,7 +7,7 @@ function Basket({ number, setNumber }) {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch("/api/books")
+    fetch("http://127.0.0.1:3000/api/books")
       .then((res) => res.json())
       .then((data) => {
         setCart(data);
@@ -16,7 +16,7 @@ function Basket({ number, setNumber }) {
   }, []);
 
   function handleRemoveFromCart(id) {
-    fetch(`/api/books/${id}`, {
+    fetch(`http://127.0.0.1:3000/api/books/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -34,7 +34,7 @@ function Basket({ number, setNumber }) {
           <img
             className="mx-auto my-20 w-2/5 max-w-sm"
             src={require("https://media.istockphoto.com/id/952640046/photo/an-empty-basket-on-a-white-background.jpg?s=612x612&w=0&k=20&c=lGCCN2ziOVkkMdLhcq8yI_UeyHNIbW0pWDMI0h0k-XU=")}
-            alt="empty cart"
+            alt="empty basket"
           />
           <h1 className="text-2xl">Your Cart is Currently Empty</h1>
           <button

@@ -10,7 +10,7 @@ function Site({ number, setNumber }) {
   const [site, setSite] = useState({});
   const { id } = params;
   useEffect(() => {
-    fetch(`/api/sites/${id}`)
+    fetch(`http://127.0.0.1:3000/api/sites/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSite(data);
@@ -18,7 +18,7 @@ function Site({ number, setNumber }) {
   }, []);
 
   function handleOrderClick() {
-    fetch("/api/books", {
+    fetch("http://127.0.0.1:3000/api/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

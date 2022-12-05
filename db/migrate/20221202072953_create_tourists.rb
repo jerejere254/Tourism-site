@@ -5,7 +5,7 @@ class CreateTourists < ActiveRecord::Migration[7.0]
       t.string :user_type
       t.integer :phone
       t.string :email
-      t.string :password
+      t.string :password_digest
       t.timestamps
     end
   end

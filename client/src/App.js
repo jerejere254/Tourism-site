@@ -10,7 +10,7 @@ import Sites from './components/Sites'
 import TourguideLoginForm from './components/TourguideLoginForm'
 import Tourguidesighnupform from './components/Tourguidesighnupform'
 import TouristLoginForm from './components/TouristLoginForm'
-import "./index.css"
+import "./App.css"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

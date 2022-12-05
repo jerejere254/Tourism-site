@@ -15,7 +15,7 @@ function SiteEditForm() {
   const { id } = params;
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`/api/tourguide_sites/${id}`)
+    fetch(`http://127.0.0.1:3000/api/tourguide_sites/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTitle(data.title);
@@ -29,7 +29,7 @@ function SiteEditForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch(`/api/tourguide_sites/${id}`, {
+    fetch(`http://127.0.0.1:3000/api/tourguide_sites/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
