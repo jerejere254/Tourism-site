@@ -79,12 +79,12 @@ function Basket({ number, setNumber }) {
                 >
                   <img
                     className="w-[100px] h-20 rounded-md object-cover ml-5"
-                    src={book.product_image}
+                    src={book.site_image}
                     alt="site"
                   ></img>
                 </th>
-                <td className="py-4 px-6">{book.product_title}</td>
-                <td className="py-4 px-6">{book.product_price}</td>
+                <td className="py-4 px-6">{book.site_title}</td>
+                <td className="py-4 px-6">{book.site_price}</td>
                 <td className="py-4 px-6">
                   <button
                     className=" bg-red-800 text-white hover:bg-red-900 mt-5  py-2 px-4 border border-red-400 hover:border-transparent rounded"

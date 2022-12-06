@@ -1,131 +1,60 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import "./site.css";
 import { useNavigate } from "react-router-dom";
 
-function Sites({ number, setNumber }) {
-  const [errors, setErrors] = useState([]);
+import Grid from "@mui/material/Grid";
+
+
+function Sites() {
   const navigate = useNavigate();
-  const params = useParams();
-  const [site, setSite] = useState({});
-  const { id } = params;
+  const [Sites, setSites] = useState([]);
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/api/sites/${id}`)
+    fetch("/api/Sites")
       .then((res) => res.json())
       .then((data) => {
-        setSite(data);
+        setSites(data);
       });
   }, []);
-
-  function handleOrderClick() {
-    fetch("http://127.0.0.1:3000/api/books", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ site_id: id }),
-    }).then((r) => {
-      if (r.ok) {
-        setNumber(number + 1);
-        navigate("/basket");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
-  }
-
   return (
     <div>
-      <hr></hr>
-      <div className="flex m-5 main-cont">
-        <div className="w-2/5 mr-5 cont-left">
-          <img
-            className="w-full rounded-3xl max-h-[60vh] object-cover"
-            alt="site"
-            src={site.image_url}
-          ></img>
-        </div>
-        <div className="w-3/5 cont-right">
-          <div className="w-5/6 mx-auto border-solid border-2 border-slate-800  p-3 inner-cont">
-            <h1 className="text-center font-black  text-white text-2xl">
-              Site Details
-            </h1>
-            <hr></hr>
-            <p className="font-bold mt-2 text-xl">
-              Name:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.title}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-              Description:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.description}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-              Price:{" "}
-              <span className="text-lg font-black text-neutral-400 ml-3">
-                Ksh. {site.price}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-               Remaining:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.remaining}
-              </span>
-            </p>
-
-            <h1 className="text-center font-black mt-3 text-white text-2xl">
-              Tourguide Details
-            </h1>
-            <hr></hr>
-            <p className="font-bold mt-2 text-xl">
-              Name:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.username}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-              Phone:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                +{site.phone}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-              Email:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.email}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-               Address:{" "}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.address}
-              </span>
-            </p>
-            <hr></hr>
-            {errors.map((error) => {
-              return (
-                <div
-                  className="bg-red-100 w-full mx-auto border border-red-400 text-red-700 px-4 py-3 rounded relative mt-5 text-center"
-                  role="alert"
-                >
-                  <span className="block sm:inline">{error}</span>
+      <h1 className="text-center p-3 text-white text-xl font-black">
+        ALL AVAILABLE Sites
+      </h1>
+      <div className="mx-8 pb-8" >
+      <Grid container spacing={5} >
+        
+        {/* <div className="flex flex-wrap gap-8 justify-evenly  p-4 font-bold"> */}
+        {Sites.map((site) => (
+          <Grid item xs={12} sm={6}  md={4} lg={3}>
+            <div
+              className=" rounded-xl overflow-hidden shadow-2xl bg-[#1F2937]"
+              key={site.id}
+            >
+              <img
+                className="w-full h-80 object-cover"
+                src={site.image_url}
+                alt="site"
+              ></img>
+              <div className="px-6 py-4">
+                <div className=" text-xl mb-2 text-center">{site.title}</div>
+                <div className="w-9/12 mx-auto">
+                  <p className="text-center ">Ksh. {site.price}</p>
                 </div>
-              );
-            })}
-            <div className="flex justify-center">
-              <button
-                className='bg-green-900 w-full hover:bg-green-500 mt-8  py-2 px-4 rounded text-lg font-bold border border-white hover:border-transparent"'
-                onClick={handleOrderClick}
-              >
-                Appointment
-              </button>
+                <div className="flex justify-center">
+                  <button
+                    className=" bg-purple-900 hover:bg-purple-600 mt-5  py-2 px-4 border border-purple-300 hover:border-transparent rounded"
+                    onClick={() => navigate(`/view_site/${site.id}`)}
+                  >
+                    Explore site
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        ))}
+        {/* </div> */}
+      </Grid>
       </div>
+
     </div>
   );
 }

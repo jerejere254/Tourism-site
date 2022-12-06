@@ -72,8 +72,8 @@ function App() {
             path="/vendor_signup"
             element={<TourguideLoginForm setUser={setUser} />}
           />
-          <Route path="/manage_products" element={<ManageSites />} />
-          <Route path="/product_edit/:id" element={<SiteEditForm />} />
+          <Route path="/manage_Sites" element={<ManageSites />} />
+          <Route path="/site_edit/:id" element={<SiteEditForm />} />
         </Routes>
       </div>
       <Footer />
