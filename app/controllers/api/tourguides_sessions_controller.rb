@@ -1,4 +1,4 @@
-class Api::TourguideSessionsController < ApplicationController
+class Api::TourguidesSessionsController < ApplicationController
 
     def create
         tourguide = Tourguide.find_by(username: params[:username])

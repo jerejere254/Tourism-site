@@ -18,7 +18,7 @@ function App() {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    fetch("/api/books")
+    fetch("http://127.0.0.1:3000/api/books")
       .then((res) => res.json())
       .then((data) => {
         setNumber(data.length);
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/tourist_auth").then((r) => {
+    fetch("http://127.0.0.1:3000/api/tourist_auth").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/tourguide_auth").then((r) => {
+    fetch("http://127.0.0.1:3000/api/tourguide_auth").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -48,7 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Site />} />
           <Route
-            path="/_login"
+            path="/tourist_login"
             element={<TouristLoginForm setUser={setUser} />}
           />
           <Route
@@ -56,7 +56,7 @@ function App() {
             element={<Sites number={number} setNumber={setNumber} />}
           />
           <Route
-            path="/cart"
+            path="/basket"
             element={<Basket number={number} setNumber={setNumber} />}
           />
           <Route
@@ -65,11 +65,11 @@ function App() {
           />
 
           <Route
-            path="/vendor_login"
+            path="/tourguide_login"
             element={<TourguideLoginForm setUser={setUser} />}
           />
           <Route
-            path="/vendor_signup"
+            path="/tourguide_signup"
             element={<TourguideLoginForm setUser={setUser} />}
           />
           <Route path="/manage_Sites" element={<ManageSites />} />

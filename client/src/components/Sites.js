@@ -8,7 +8,7 @@ function Sites() {
   const navigate = useNavigate();
   const [Sites, setSites] = useState([]);
   useEffect(() => {
-    fetch("/api/Sites")
+    fetch("http://127.0.0.1:3000/api/sites")
       .then((res) => res.json())
       .then((data) => {
         setSites(data);

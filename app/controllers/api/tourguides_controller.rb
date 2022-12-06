@@ -16,7 +16,7 @@ class Api::TourguidesController < ApplicationController
 
     def create
         if session[:tourist_id]
-            render json: {errors: ["Please Log Out from Tiurists Account before creating a Tourguide Account"]}, status: 401
+            render json: {errors: ["Please Log Out from Tourists Account before creating a Tourguide Account"]}, status: 401
         else
             tourguide = Tourguide.create!(vendor_params)
             session[:tourguide_id] = tourguide.id
