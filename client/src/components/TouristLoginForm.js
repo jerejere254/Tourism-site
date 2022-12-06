@@ -78,7 +78,7 @@ function TouristLoginForm({ setUser }) {
         </h2>
 
         <Link
-          to="/customer_signup"
+          to="/tourist_signup"
           className="text-center text-l text-blue-500 underline hover:text-teal-200"
         >
           Sign Up here

@@ -90,7 +90,7 @@ function Navbar({ user, setUser, number, setNumber }) {
           </button>
         ) : (
           <Link
-            to="/customer_login"
+            to="/tourist_login"
             className="text-teal-200 hover:text-white mr-5"
           >
             <FaUserCircle className="inline mr-1 mt-0" />

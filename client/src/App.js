@@ -60,7 +60,7 @@ function App() {
             element={<Basket number={number} setNumber={setNumber} />}
           />
           <Route
-            path="/customer_signup"
+            path="/tourist_signup"
             element={<Tourguidesighnupform setUser={setUser} />}
           />
 
