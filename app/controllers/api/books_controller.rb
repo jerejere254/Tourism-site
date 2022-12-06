@@ -1,4 +1,4 @@
-class Api::BookssController < ApplicationController
+class Api::BooksController < ApplicationController
     before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :render_unproccessable_entity
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response

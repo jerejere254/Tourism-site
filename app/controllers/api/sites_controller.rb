@@ -1,4 +1,4 @@
-class Api::SitessController < ApplicationController
+class Api::SitesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
 
 

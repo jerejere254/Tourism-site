@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :create, :destroy]
     resources :sites, only: [:index, :show]
     resources :tourists, only: [:index, :show, :create]
-    resources :tourguide, only: [:index, :show, :create]
+    resources :tourguides, only: [:index, :show, :create]
 
     # Tourist AUTH
     post "/tourist_login", to: "tourist_sessions#create"

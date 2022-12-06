@@ -120,7 +120,7 @@ function Site({ number, setNumber }) {
                 className='bg-green-900 w-full hover:bg-green-500 mt-8  py-2 px-4 rounded text-lg font-bold border border-white hover:border-transparent"'
                 onClick={handleOrderClick}
               >
-                Add to Basket
+                Make a move
               </button>
             </div>
           </div>
