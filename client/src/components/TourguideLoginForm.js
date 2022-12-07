@@ -73,17 +73,7 @@ function TourguideLoginForm({ setUser }) {
         <button className="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
           Login
         </button>
-        <h2 className="text-center mt-6 py-6 text-xl ">
-          Don't have an account?
-        </h2>
-
-        <Link
-          to="/vendor_signup"
-          className="text-center text-l text-blue-500 underline hover:text-teal-200"
-        >
-          Sign Up here
-        </Link>
-      </form>
+        </form>
     </div>
   );
 }

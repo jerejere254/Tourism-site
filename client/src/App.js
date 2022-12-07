@@ -8,8 +8,8 @@ import Site from './components/Site'
 import SiteEditForm from './components/SiteEditForm'
 import Sites from './components/Sites'
 import TourguideLoginForm from './components/TourguideLoginForm'
-import Tourguidesighnupform from './components/Tourguidesighnupform'
 import TouristLoginForm from './components/TouristLoginForm'
+import TouristSignupForm from "./components/TouristSighnupForm";
 import "./App.css"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -61,7 +61,7 @@ function App() {
           />
           <Route
             path="/tourist_signup"
-            element={<Tourguidesighnupform setUser={setUser} />}
+            element={<TouristSignupForm setUser={setUser} />}
           />
 
           <Route

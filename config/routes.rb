@@ -14,17 +14,17 @@ Rails.application.routes.draw do
     post "/tourist_signup", to: "tourists#create"
 
     # Tourguide AUTH
-    post "tourguide_login", to: "tourguide_sessions#create"
-    delete "tourguide_logout", to: "tourguide_sessions#destroy"
-    get "/tourguide_auth", to: "tourguides#show"
-    post "/tourguide_signup", to: "tourguides#create"
+    post "tourguides_login", to: "tourguides_sessions#create"
+    delete "tourguides_logout", to: "tourguides_sessions#destroy"
+    get "/tourguides_auth", to: "tourguides#show"
+    post "/tourguides_signup", to: "tourguides#create"
 
     # tourguide sites
-    get 'tourguide_sites', to: "tourguide_sitess#index"
-    get "tourguide_sites/:id", to: "tourguide_sites#show"
-    patch "tourguide_sites/:id", to: "tourguide_sites#update"
-    delete "tourguide_sites/:id", to: "tourguide_sites#destroy"
-    post 'tourguide_sites', to: "tourguide_sites#create"
+    get 'tourguides_sites', to: "tourguides_sites#index"
+    get "tourguides_sites/:id", to: "tourguides_sites#show"
+    patch "tourguides_sites/:id", to: "tourguides_sites#update"
+    delete "tourguides_sites/:id", to: "tourguides_sites#destroy"
+    post 'tourguides_sites', to: "tourguides_sites#create"
 
 
   end
