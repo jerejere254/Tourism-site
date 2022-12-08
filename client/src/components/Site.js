@@ -10,10 +10,12 @@ function Site({ number, setNumber }) {
   const [site, setSite] = useState({});
   const { id } = params;
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/api/sites`)
+    fetch("http://127.0.0.1:3000/api/sites")
       .then((res) => res.json())
-      .then((data) => {
-        setSite(data);
+            .then((data) => {
+        console.log(data)
+              setSite(data);
+              console.log(site)
       });
   }, []);
 

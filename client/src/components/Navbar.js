@@ -50,7 +50,7 @@ function Navbar({ user, setUser, number, setNumber }) {
           <Link to="/">MOJE</Link>
         </span>
 
-        <Link to="/" className=" text-teal-200 hover:text-white ml-5">
+        <Link to="/api/sites" className=" text-teal-200 hover:text-white ml-5">
           All Sites
         </Link>
       </div>

@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/tourguide_auth").then((r) => {
+    fetch("http://127.0.0.1:3000/api/sites").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
