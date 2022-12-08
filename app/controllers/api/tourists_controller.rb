@@ -6,9 +6,9 @@ class Api::TouristsController < ApplicationController
     end
 
     def show
-        tourist=Tourist.find_by(id: session[:tourist_id])
+        tourist=Tourist.find_by(id: session[:tourists_id])
         if tourist
-            render json: tourist
+            render json: Tourists
         else
             render json: {error: "unauthorized"}, status: 401
         end
@@ -19,8 +19,8 @@ class Api::TouristsController < ApplicationController
             render json: {errors: ["Please Log Out tourguides Account before Creating a tourist Account"]}, status: 401
         else
             tourist = Tourist.create!(tourist_params)
-            session[:tourist_id] = tourist.id
-            render json: tourist, status: 201
+            session[:tourists_id] = tourist.id
+            render json: Tourists, status: 201
         end
         
     end
@@ -35,3 +35,4 @@ class Api::TouristsController < ApplicationController
         render json: {errors: invalid.record.errors.full_messages}, status: 422
     end
 end
+

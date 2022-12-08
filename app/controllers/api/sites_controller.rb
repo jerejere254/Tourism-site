@@ -8,7 +8,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
 
     def show
         site = Site.find(params[:id])
-        render json: site
+        render json: site, serializer: SiteAndTourguideSeriliazer
     end
 
     def render_record_not_found

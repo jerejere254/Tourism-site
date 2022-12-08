@@ -1,12 +1,12 @@
-class Api::TourguidesSessionsController < ApplicationController
+class Api::TourguideSessionsController < ApplicationController
 
     def create
         tourguide = Tourguide.find_by(username: params[:username])
-        if session[:tourist_id]
+        if session[:tourists_id]
             render json: {errors: ["Please Log Out from Tourist Account before Logging in as a Tourguide"]}, status: 401
         elsif tourguide&.authenticate(params[:password])
             session[:tourguide_id] = tourguide.id
-            render json: tourguide
+            render json: Tourguide
         else
             render json: {errors: ["Invalid Username or Password"]}, status: 401
         end

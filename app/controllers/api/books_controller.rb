@@ -6,13 +6,13 @@ class Api::BooksController < ApplicationController
     
     def index
        
-        books = Book.where(tourist_id: @tourist.id)
+        books = Book.where(tourists_id: @tourist.id)
         render json: books
     end
 
     def create
         # binding.pry
-        book = Book.create!(site_id: params[:site_id], tourist_id: @tourist.id)
+        book = Book.create!(site_id: params[:site_id], tourists_id: @tourist.id)
     end
 
     def destroy

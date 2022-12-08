@@ -1,4 +1,4 @@
-class Api::TourguidesSitesController < ApplicationController
+class Api::TourguideSitesController < ApplicationController
     before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :render_unproccessable_entity
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found

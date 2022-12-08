@@ -1,5 +1,5 @@
 class BooksSerializer < ActiveModel::Serializer
-  attributes :id, :site_id, :tourist_id, :site_title, :site_image, :site_price
+  attributes :id, :site_id, :tourists_id, :site_title, :site_image, :site_price
 
   def site_title
     self.object.site["title"]
