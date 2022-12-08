@@ -101,9 +101,9 @@ function TouristSignupForm({ setUser }) {
 
           <Link
             to="http://127.0.0.1:3000/api/api/tourists_signup"
-            className="text-center text-l text-blue-500 underline hover:text-teal-200"
+            className="text-center text-l text-green-500 underline hover:text-teal-200"
           >
-            Log in here
+            Log in here instead
           </Link>
         </form>
       </div>
