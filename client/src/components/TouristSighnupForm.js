@@ -14,7 +14,7 @@ function TouristSignupForm({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
-    fetch("http://127.0.0.1:3000/api/api/tourists_signup", {
+    fetch("/api/tourists_signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ function TouristSignupForm({ setUser }) {
           </h2>
 
           <Link
-            to="http://127.0.0.1:3000/api/api/tourists_signup"
+            to="/api/tourists_signup"
             className="text-center text-l text-green-500 underline hover:text-teal-200"
           >
             Log in here instead

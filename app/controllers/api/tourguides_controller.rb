@@ -8,7 +8,7 @@ class Api::TourguidesController < ApplicationController
     def show
         tourguide = Tourguide.find_by(id: session[:tourguide_id])
         if tourguide
-            render json: Tourguide
+            render json: tourguide
         else
             render json: {error: "unauthorized"}, status: 401
         end

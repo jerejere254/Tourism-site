@@ -6,7 +6,7 @@ class Api::TouristSessionsController < ApplicationController
             render json: {errors: ["Please Log Out from tourguide Account before Logging in as tourist"]}, status: 401
         elsif tourist&.authenticate(params[:password])
             session[:tourists_id] = tourist.id
-            render json: Tourists
+            render json: tourist
         else
             render json: {errors: ["Invalid Username or Password"]}, status: 401
         end

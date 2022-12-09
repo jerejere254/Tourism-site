@@ -8,7 +8,7 @@ class Api::TouristsController < ApplicationController
     def show
         tourist=Tourist.find_by(id: session[:tourists_id])
         if tourist
-            render json: Tourists
+            render json: tourist
         else
             render json: {error: "unauthorized"}, status: 401
         end
@@ -20,7 +20,7 @@ class Api::TouristsController < ApplicationController
         else
             tourist = Tourist.create!(tourist_params)
             session[:tourists_id] = tourist.id
-            render json: Tourists, status: 201
+            render json: tourists, status: 201
         end
         
     end
