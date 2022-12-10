@@ -11,7 +11,7 @@ function TourguideLoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/api/tourguide_auth", {
+    fetch("/api/tourguide_auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

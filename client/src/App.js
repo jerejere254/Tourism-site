@@ -18,7 +18,7 @@ function App() {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/books")
+    fetch("/api/books")
       .then((res) => res.json())
       .then((data) => {
         setNumber(data.length);
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/tourist_auth").then((r) => {
+    fetch("/api/tourist_auth").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/sites").then((r) => {
+    fetch("/api/sites").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }

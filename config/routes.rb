@@ -4,20 +4,20 @@ Rails.application.routes.draw do
 
     resources :books, only: [:index, :create, :destroy]
     resources :sites, only: [:index, :show]
-    resources :tourists, only: [:index, :show, :create]
+    resources :tourists, only: [:index, :show, :create, :destroy]
     resources :tourguides, only: [:index, :show, :create]
 
     # Tourist AUTH
-    post "/tourist_login", to: "tourist_sessions#create"
-    delete "/tourist_logout", to: "tourist_sessions#destroy"
-    get "/tourist_auth", to: "tourists#show"
-    post "/tourist_signup", to: "tourists#create"
+    post "tourist_login", to: "tourist_sessions#create"
+    delete "tourist_logout", to: "tourist_sessions#destroy"
+    get "tourists_auth", to: "tourists#show"
+    post "tourists_signup", to: "tourists#create"
 
     # Tourguide AUTH
     post "tourguide_login", to: "tourguide_sessions#create"
     delete "tourguide_logout", to: "tourguide_sessions#destroy"
-    get "/tourguide_auth", to: "tourguides#show"
-    post "/tourguide_signup", to: "tourguides#create"
+    get "tourguide_auth", to: "tourguides#show"
+    post "tourguide_signup", to: "tourguides#create"
 
     # tourguide sites
     get 'tourguide_sites', to: "tourguide_sites#index"
