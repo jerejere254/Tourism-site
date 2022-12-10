@@ -10,7 +10,7 @@ function Site({ number, setNumber }) {
   const [site, setSite] = useState({});
   const { id } = params;
   useEffect(() => {
-    fetch('/api/sites/${id}')
+    fetch('/api/sites')
       .then((res) => res.json())
             .then((data) => {
                setSite(data);
@@ -42,8 +42,8 @@ function Site({ number, setNumber }) {
         <div className="w-2/5 mr-5 cont-left">
           <img
             className="w-full rounded-3xl max-h-[60vh] object-cover"
-            alt="site"
-            src={site.image_url}
+            alt="loading"
+            src={"https://www.touropia.com/gfx/b/2020/01/kenya.jpg"}
           ></img>
         </div>
         <div className="w-3/5 cont-right">
@@ -52,26 +52,26 @@ function Site({ number, setNumber }) {
               Site Details
             </h1>
             <hr></hr>
-            <p className="font-bold mt-2 text-xl">
-              Name:{" "}
+            <p className="font-bold mt-2 text-center ">
+                     {"VISIT KENYA "}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.title}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Description:{" "}
+              Description:{"One of the best places in the world to see wildlife up close and personal, for many people, Kenya is the home of safari. Its endless savannah and arid deserts teem with life as lions, elephants, and buffalo roam alongside herds of antelope, flocks of flamingos, and the occasional black"}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.description}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Price:{" "}
+              Price:Ksh {"7000"}
               <span className="text-lg font-black text-neutral-400 ml-3">
-                Ksh. {site.price}
+                 {site.price}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Remaining:{" "}
+               Remaining: {"seven people"}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.remaining}
               </span>
@@ -82,25 +82,25 @@ function Site({ number, setNumber }) {
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-xl">
-              Name:{" "}
+              Name:{"Johny Sins"}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.username}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Phone:{" "}
+              Phone:{"0707629420"}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                +{site.phone}
+                {site.phone}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Email:{" "}
+              Email: {"jerry@tourist.com"}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.email}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Address:{" "}
+               Address:{"Imara Daima"}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.address}
               </span>
@@ -121,7 +121,7 @@ function Site({ number, setNumber }) {
                 className='bg-green-900 w-full hover:bg-green-500 mt-8  py-2 px-4 rounded text-lg font-bold border border-white hover:border-transparent"'
                 onClick={handleOrderClick}
               >
-                Make a move
+                
               </button>
             </div>
           </div>
