@@ -6,12 +6,12 @@ import Grid from "@mui/material/Grid";
 
 function Sites() {
   const navigate = useNavigate();
-  const [Sites, setSites] = useState([]);
+  const [sites, setSites] = useState([]);
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/sites")
+    fetch("/api/sites")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setSites(data);
       });
   }, []);
@@ -24,7 +24,7 @@ function Sites() {
       <Grid container spacing={5} >
         
         {/* <div className="flex flex-wrap gap-8 justify-evenly  p-4 font-bold"> */}
-        {Sites.map((site) => (
+        {sites.map((site) => (
           <Grid item xs={12} sm={6}  md={4} lg={3}>
             <div
               className=" rounded-xl overflow-hidden shadow-2xl bg-[#1F2937]"
@@ -33,7 +33,7 @@ function Sites() {
               <img
                 className="w-full h-80 object-cover"
                 src={site.image_url}
-                alt="site"
+                alt="Loading"
               ></img>
               <div className="px-6 py-4">
                 <div className=" text-xl mb-2 text-center">{site.title}</div>
