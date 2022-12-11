@@ -10,6 +10,7 @@ import Sites from './components/Sites'
 import TourguideLoginForm from './components/TourguideLoginForm'
 import TouristLoginForm from './components/TouristLoginForm'
 import TouristSignupForm from "./components/TouristSighnupForm";
+import TourguideSignupForm from "./components/Tourguidesignupform";
 import "./App.css"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -70,7 +71,7 @@ function App() {
           />
           <Route
             path="/tourguide_signup"
-            element={<TourguideLoginForm setUser={setUser} />}
+            element={<TourguideSignupForm setUser={setUser} />}
           />
           <Route path="/manage_Sites" element={<ManageSites />} />
           <Route path="/site_edit/:id" element={<SiteEditForm />} />
