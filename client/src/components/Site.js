@@ -43,7 +43,7 @@ function Site({ number, setNumber }) {
           <img
             className="w-full rounded-3xl max-h-[60vh] object-cover"
             alt="loading"
-            src={"https://www.touropia.com/gfx/b/2020/01/kenya.jpg"}
+            src={""}
           ></img>
         </div>
         <div className="w-3/5 cont-right">
@@ -53,13 +53,13 @@ function Site({ number, setNumber }) {
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-center ">
-                     {"VISIT KENYA "}
+                   NAME:  {""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.title}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Description:{"One of the best places in the world to see wildlife up close and personal, for many people, Kenya is the home of safari. Its endless savannah and arid deserts teem with life as lions, elephants, and buffalo roam alongside herds of antelope, flocks of flamingos, and the occasional black"}
+              Description:{""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.description}
               </span>
@@ -71,7 +71,7 @@ function Site({ number, setNumber }) {
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Remaining: {"seven people"}
+               Remaining: {""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.remaining}
               </span>
@@ -82,25 +82,25 @@ function Site({ number, setNumber }) {
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-xl">
-              Name:{"Johny Sins"}
+              Name:{""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.username}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Phone:{"0707629420"}
+              Phone:{""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.phone}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Email: {"jerry@tourist.com"}
+              Email: {""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.email}
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Address:{"Imara Daima"}
+               Address:{""}
               <span className="text-lg font-light text-neutral-400 ml-3">
                 {site.address}
               </span>
