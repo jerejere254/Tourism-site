@@ -3,20 +3,28 @@ import { useParams } from "react-router-dom";
 import "./site.css";
 import { useNavigate } from "react-router-dom";
 
-function Site({ items, setItems }) {
+function Site({ number, setNumber }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
   const [site, setSite] = useState({});
   const { id } = params;
   useEffect(() => {
-    fetch('/api/sites')
+    fetch(`/api/sites/${id}`)
       .then((res) => res.json())
             .then((data) => {
                setSite(data);
               
       });
-  }, []);
+  }, [id]);
+
+ console.log(site)
+
+ 
+
+
+
+
 
   function handleOrderClick() {
     fetch("/api/books", {
@@ -27,7 +35,7 @@ function Site({ items, setItems }) {
       body: JSON.stringify({ site_id: id }),
     }).then((r) => {
       if (r.ok) {
-        setItems(items + 1);
+        setNumber(number + 1);
         navigate("/basket");
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -43,7 +51,7 @@ function Site({ items, setItems }) {
           <img
             className="w-full rounded-3xl max-h-[60vh] object-cover"
             alt="loading"
-            src={""}
+            src={site.image_url}
           ></img>
         </div>
         <div className="w-3/5 cont-right">
@@ -53,27 +61,24 @@ function Site({ items, setItems }) {
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-center ">
-                   NAME:  {""}
+                     {`VISIT ${site.title}`}
+            </p>
+            <p className="font-bold mt-2 text-xl">
+              Description: {site.description}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.title}
+                
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Description:{""}
-              <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.description}
-              </span>
-            </p>
-            <p className="font-bold mt-2 text-xl">
-              Price:Ksh {""}
+              Price:Ksh  {site.price}
               <span className="text-lg font-black text-neutral-400 ml-3">
-                 {site.price}
+                
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Remaining: {""}
+               Remaining:  {site.remaining}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.remaining}
+               
               </span>
             </p>
 
@@ -82,27 +87,27 @@ function Site({ items, setItems }) {
             </h1>
             <hr></hr>
             <p className="font-bold mt-2 text-xl">
-              Name:{""}
+              Name:{site.username}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.username}
+                
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Phone:{""}
+              Phone:{site.phone}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.phone}
+                
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Email: {""}
+              Email: {site.email}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.email}
+                
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-               Address:{""}
+               Address: {site.address}
               <span className="text-lg font-light text-neutral-400 ml-3">
-                {site.address}
+                
               </span>
             </p>
             <hr></hr>
