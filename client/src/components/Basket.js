@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Basket({ number, setNumber }) {
+function Basket({ items, setItems }) {
   const navigate = useNavigate();
 
   const [cart, setCart] = useState([]);
@@ -11,7 +11,7 @@ function Basket({ number, setNumber }) {
       .then((res) => res.json())
       .then((data) => {
         setCart(data);
-        setNumber(data.length);
+        setItems(data.length);
       });
   }, []);
 
@@ -23,7 +23,7 @@ function Basket({ number, setNumber }) {
       .then((data) => {
         const updatedCart = cart.filter((book) => book.id !== data.id);
         setCart(updatedCart);
-        setNumber(number - 1);
+        setItems(items - 1);
       });
   }
 

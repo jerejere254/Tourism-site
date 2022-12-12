@@ -16,13 +16,13 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null);
-  const [number, setNumber] = useState(0);
+  const [items, setItems] = useState(0);
 
   useEffect(() => {
     fetch("/api/books")
       .then((res) => res.json())
       .then((data) => {
-        setNumber(data.length);
+        setItems(data.length);
       });
   }, []);
 
@@ -45,20 +45,20 @@ function App() {
   return (
     <div>
       <div className="min-h-[93vh] bg-flow-grey-bg text-white">
-        <Navbar user={user} setUser={setUser} number={number} setNumber={setNumber}/>
+        <Navbar user={user} setUser={setUser} items={items} setItems={setItems}/>
         <Routes>
-          <Route path="/" element={<Site />} />
+          <Route path="/" element={<Sites />} />
           <Route
             path="/tourist_login"
             element={<TouristLoginForm setUser={setUser} />}
           />
           <Route
             path="/view_site/:id"
-            element={<Sites number={number} setNumber={setNumber} />}
+            element={<Site items={items} setItems={setItems} />}
           />
           <Route
             path="/basket"
-            element={<Basket number={number} setNumber={setNumber} />}
+            element={<Basket items={items} setItems={setItems} />}
           />
           <Route
             path="/tourist_signup"

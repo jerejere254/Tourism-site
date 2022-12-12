@@ -85,7 +85,7 @@ function SiteEditForm() {
             <label htmlFor="price">Price</label>
             <input
               className="text-black mt-2 h-8 p-1"
-              type="number"
+              type="items"
               name="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -108,7 +108,7 @@ function SiteEditForm() {
             <input
               className="text-black mt-2 h-8 p-1"
               name="remaining"
-              type="number"
+              type="items"
               value={remaining}
               onChange={(e) => setremaining(e.target.value)}
             />

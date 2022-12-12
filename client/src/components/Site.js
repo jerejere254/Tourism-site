@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./site.css";
 import { useNavigate } from "react-router-dom";
 
-function Site({ number, setNumber }) {
+function Site({ items, setItems }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
@@ -27,7 +27,7 @@ function Site({ number, setNumber }) {
       body: JSON.stringify({ site_id: id }),
     }).then((r) => {
       if (r.ok) {
-        setNumber(number + 1);
+        setItems(items + 1);
         navigate("/basket");
       } else {
         r.json().then((err) => setErrors(err.errors));

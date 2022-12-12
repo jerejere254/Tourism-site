@@ -7,7 +7,7 @@ import { FaShopify, FaCog } from "react-icons/fa";
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ user, setUser, number, setNumber }) {
+function Navbar({ user, setUser, items, setItems }) {
   const navigate = useNavigate();
 
   function handleTouristLogOut() {
@@ -16,7 +16,7 @@ function Navbar({ user, setUser, number, setNumber }) {
     }).then((r) => {
       if (r.ok) {
         setUser(null);
-        setNumber(0);
+        setItems(0);
         navigate("/");
       }
     });
@@ -34,8 +34,8 @@ function Navbar({ user, setUser, number, setNumber }) {
   }
 
   return (
-    <nav className="flex number-center justify-between flex-wrap bg-black p-6">
-      <div className="flex number-center flex-shrink-0 text-white mr-6">
+    <nav className="flex items-center justify-between flex-wrap bg-black p-6">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
         <svg
           className="fill-current h-8 w-8 mr-2"
           width="54"
@@ -59,13 +59,13 @@ function Navbar({ user, setUser, number, setNumber }) {
         <h1 className=" text-teal-200 hover:text-white ">Hi {user.username}</h1>
       ) : null}
 
-      <div className="flex number-center text-lg">
+      <div className="flex items-center text-lg">
         {user && user.user_type === "tourist" ? (
           <Link
             to="/basket"
             className=" text-teal-200 hover:text-white mr-5 text-"
           >
-            <Badge badgeContent={number} color="secondary" className="text-2xl">
+            <Badge badgeContent={items} color="secondary" className="text-2xl">
               <FaShopify />
             </Badge>
           </Link>

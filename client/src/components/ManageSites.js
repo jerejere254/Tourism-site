@@ -9,7 +9,7 @@ function ManageSites() {
   const [description, setDescription] = useState("");
   const [image_url, setImage_url] = useState();
   const [price, setPrice] = useState();
-  const [remaining, setNumberofUser] = useState(1);
+  const [remaining, setItemsofUser] = useState(1);
 
   const navigate = useNavigate();
 
@@ -162,7 +162,7 @@ function ManageSites() {
             <label htmlFor="price">Price</label>
             <input
               className="text-black mt-2 h-8 p-1"
-              type="number"
+              type="items"
               name="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -185,9 +185,9 @@ function ManageSites() {
             <input
               className="text-black mt-2 h-8 p-1"
               name="remaining"
-              type="number"
+              type="items"
               value={remaining}
-              onChange={(e) => setNumberofUser(e.target.value)}
+              onChange={(e) => setItemsofUser(e.target.value)}
             />
           </fieldset>
 
