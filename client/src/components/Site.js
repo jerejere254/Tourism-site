@@ -65,7 +65,7 @@ function Site({ number, setNumber }) {
               </span>
             </p>
             <p className="font-bold mt-2 text-xl">
-              Price:Ksh {"7000"}
+              Price:Ksh {""}
               <span className="text-lg font-black text-neutral-400 ml-3">
                  {site.price}
               </span>

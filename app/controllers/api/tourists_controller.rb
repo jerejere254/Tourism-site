@@ -20,7 +20,7 @@ class Api::TouristsController < ApplicationController
         else
             tourist = Tourist.create!(tourist_params)
             session[:tourists_id] = tourist.id
-            render json: tourists, status: 201
+            render json: tourist, status: 201
         end
         
     end
